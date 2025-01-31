@@ -1,0 +1,560 @@
+/* Global styles */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+:root {
+  --accent-clr-400: hsl(354, 84%, 57%);
+  --accent-clr-350: hsl(243, 100%, 62%);
+  --accent-clr-300: hsl(213, 96%, 18%);
+  --accent-clr-250: hsl(228, 100%, 84%);
+  --accent-clr-200: hsl(206, 94%, 87%);
+
+  --neutral-clr-400: hsl(231, 11%, 63%);
+  --neutral-clr-350: hsl(229, 24%, 87%);
+  --neutral-clr-300: hsl(217, 100%, 97%);
+  --neutral-clr-250: hsl(231, 100%, 99%);
+  --neutral-clr-200: hsl(0, 0%, 100%);
+  --neutral-clr-150: hsl(0, 0%, 50%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+}
+
+a,
+span,
+label {
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: transparent;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: var(--neutral-clr-300);
+}
+
+/* Utility classes */
+.buttons {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.3rem;
+  background-color: var(--accent-clr-300);
+  color: var(--neutral-clr-200);
+  transition: opacity 0.2s ease;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+.prev-btn {
+  background-color: transparent;
+  color: var(--neutral-clr-150);
+  transition: color 0.2s ease;
+  font-weight: 500;
+  padding-left: 0;
+}
+
+.prev-btn:hover {
+  color: var(--accent-clr-300);
+}
+
+.err-msg {
+  color: var(--accent-clr-400);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+/* Progress Bar */
+.progressbar {
+  height: 10.8rem;
+  background-image: url(../src/assets/bg-sidebar-mobile.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.progressbar__steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem 1rem 0;
+}
+
+.progressbar__steps ol {
+  --size: 40px;
+  text-align: center;
+  user-select: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  height: var(--size);
+  width: var(--size);
+  margin: 0 1.063rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--neutral-clr-200);
+  border-radius: 50%;
+  border: 2px solid var(--neutral-clr-200);
+  transition: background-color 0.2 ease;
+}
+
+.progressbar__steps-info ol:hover {
+  background-color: var(--accent-clr-200);
+  color: var(--accent-clr-300);
+}
+
+.progressbar__steps-info ol.active {
+  background-color: var(--accent-clr-200);
+  color: var(--accent-clr-300);
+}
+
+.progressbar__steps-text {
+  display: none;
+}
+
+/* Form container / Header styles */
+.steps-container {
+  padding-inline: 1rem;
+}
+
+.form-step {
+  background-color: var(--neutral-clr-200);
+  padding: 2.125rem 1.5rem;
+  border-radius: 0.7rem;
+  max-width: 500px;
+  margin-inline: auto;
+  margin-top: -4.5rem;
+}
+
+.form-step__title {
+  margin-bottom: 2rem;
+}
+
+.form-step__title h1 {
+  color: var(--accent-clr-300);
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  font-size: 2rem;
+}
+
+.form-step__title p {
+  color: var(--neutral-clr-150);
+}
+
+/* Step 1 */
+.step-one .input-group {
+  position: relative;
+}
+
+.step-one .input-group label {
+  margin-bottom: 0.4rem;
+  color: var(--accent-clr-300);
+  font-weight: 400;
+}
+
+.step-one .input-group input {
+  width: 100%;
+  height: 39px;
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--neutral-clr-350);
+  margin-bottom: 1.3rem;
+  outline: none;
+  font-family: inherit;
+  padding-left: 1rem;
+}
+
+.step-one .input-group ::placeholder {
+  color: var(--neutral-clr-400);
+}
+
+.step-one .err-msg {
+  position: absolute;
+  right: 0;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Step 2 */
+.step-two .plans .plan {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid var(--neutral-clr-350);
+  padding: 1.2rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.step-two .plans .flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.9rem;
+}
+
+.step-two .plans .plan:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.step-two .plans .plan__info h4 {
+  color: var(--accent-clr-300);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.step-two .plans .plan__info span {
+  color: var(--neutral-clr-150);
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.step-two .plans .plan__info .trail {
+  color: var(--accent-clr-300);
+}
+
+.step-two .plans .plan:hover {
+  border-color: var(--accent-clr-350);
+  background-color: var(--neutral-clr-300);
+}
+
+.step-two .plans .plan.active {
+  border-color: var(--accent-clr-350);
+  background-color: var(--neutral-clr-300);
+}
+
+/* toggle switch */
+.step-two .plans .toggle__switch {
+  user-select: none;
+}
+
+.step-two .plans .toggle__switch input[type='radio'] {
+  margin: 0 -2px;
+  opacity: 0;
+  width: 27px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.step-two .plans .toggle__switch .toggle {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 2rem 0;
+  padding: 1.2rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: var(--neutral-clr-300);
+}
+
+.step-two .plans .toggle__switch .toggle__wrapper {
+  position: relative;
+  height: 25px;
+  margin: 0 1.5rem;
+}
+
+.step-two .plans .toggle__switch .toggle__background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 5rem;
+  pointer-events: none;
+  background-color: var(--accent-clr-300);
+}
+
+.step-two .plans .toggle__switch .toggle__button {
+  position: absolute;
+  left: 4px;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--neutral-clr-300);
+  transition: all 250ms ease-in-out;
+}
+
+.step-two .plans .toggle__switch #year:checked ~ .toggle__button {
+  left: 25px;
+}
+
+.fade {
+  color: var(--neutral-clr-150);
+}
+
+/* Step 3 */
+.add-ons .add-on--info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid var(--neutral-clr-350);
+  padding: 1.2rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.2 ease;
+}
+
+.add-ons .add-on--info:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.add-ons .add-on--info__flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.9rem;
+}
+
+.add-ons .add-on--info:hover,
+.add-ons .add-on--info.active {
+  border-color: var(--accent-clr-350);
+  background-color: var(--neutral-clr-300);
+}
+
+.add-ons .add-on input[type='checkbox'] {
+  width: 19px;
+  height: 19px;
+}
+
+.add-ons .add-on--text h4 {
+  color: var(--accent-clr-300);
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.add-ons .add-on--text p {
+  color: var(--neutral-clr-150);
+}
+
+.add-ons .add-on--info span {
+  color: var(--accent-clr-350);
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Step 4 */
+.step-four .confirm-steps {
+  background-color: var(--neutral-clr-300);
+  padding: 1.2rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.step-four .flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.step-four .confirm-steps .confirm-plan {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.step-four .confirm-steps .confirm-plan::after {
+  content: '';
+  position: absolute;
+  bottom: -0.7rem;
+  width: 100%;
+  height: 1.5px;
+  background-color: #e6e6e6e6;
+}
+
+.step-four .confirm-steps .plan h4 {
+  text-transform: capitalize;
+}
+
+.step-four .confirm-steps .plan h4,
+.step-four .confirm-steps .confirm-plan .plan-price {
+  color: var(--accent-clr-300);
+  font-weight: 700;
+}
+
+.step-four .confirm-steps .confirm-addon:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.step-four .confirm-steps .confirm-addon h4 {
+  color: var(--neutral-clr-150);
+  font-weight: 400;
+}
+
+.step-four .change {
+  text-decoration: underline;
+  color: var(--neutral-clr-150);
+  margin-top: 0.3rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.step-four .change:hover {
+  color: var(--accent-clr-350);
+}
+
+.step-four .confirm-steps .confirm-addon span {
+  color: var(--accent-clr-300);
+  font-weight: 500;
+}
+
+.step-four .total h4 {
+  color: var(--neutral-clr-150);
+}
+
+.step-four .total span {
+  color: var(--accent-clr-350);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Thank you */
+.thank-you {
+  text-align: center;
+}
+
+.thank-you img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.thank-you h2 {
+  color: var(--accent-clr-300);
+  margin-bottom: 0.5rem;
+}
+
+.thank-you p {
+  line-height: 1.4;
+  color: var(--neutral-clr-150);
+}
+
+/* Media queries */
+@media (min-width: 75rem) {
+  .container {
+    width: 900px;
+    margin-inline: auto;
+    padding: 1.5rem;
+    background-color: var(--neutral-clr-200);
+    border-radius: 0.7rem;
+  }
+
+  .form-container {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+  }
+
+  .d-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 3rem;
+    height: 100%;
+  }
+
+  .progressbar {
+    background-image: url(../src/assets/bg-sidebar-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    border-radius: 0.7rem;
+    width: 250px;
+    height: 500px;
+  }
+
+  .progressbar__steps {
+    display: block;
+  }
+
+  .progressbar__steps-info {
+    width: 100%;
+    display: flex;
+    margin-bottom: 2rem;
+  }
+
+  .progressbar__steps-info ol {
+    margin: 0;
+  }
+
+  .progressbar__steps-text {
+    display: block;
+    color: var(--neutral-clr-200);
+    margin-left: 1rem;
+    text-align: left;
+  }
+
+  .progressbar__steps-text h5 {
+    text-transform: uppercase;
+    font-weight: lighter;
+    font-size: 0.8rem;
+  }
+
+  .progressbar__steps-text span {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1rem;
+  }
+
+  .form-step {
+    max-width: 100%;
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+    margin-top: 2rem;
+    padding-right: 3rem;
+  }
+
+  /* Step 2 */
+  .step-two .plans .flex {
+    display: block;
+    width: 100%;
+  }
+
+  .step-two .plans .d-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 1rem;
+  }
+
+  .step-two .plans .plan:not(:last-child) {
+    margin-bottom: 0;
+  }
+
+  .step-two .plans .plan img {
+    margin-bottom: 2rem;
+  }
+
+  /* Thank you */
+  .thank-you {
+    width: 500px;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+  }
+}
